@@ -25,7 +25,6 @@ export default class Turn{
         this.playerTurn(player)
       } else {
         continueGame = false;
-        this.game.endGame();
       }
     });
   }

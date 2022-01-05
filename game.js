@@ -48,12 +48,9 @@ export default class Game {
 
   endGame(){
     console.log(`THE GAME IS OVER`);
-    console.log(this.players);
   }
 
   playingPlayers(){
-    console.log(this.players);
-    console.log('4');
     return this.players.filter(player => player.status === 'playing');
   }
 }
