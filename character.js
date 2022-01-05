@@ -12,10 +12,12 @@ export default class Character {
     amont -= this.shield;
     amont > 0 ? this.hp -= amont : null;
     this.hp <= 0 ? this.status='loser' : null;
+    console.log(`${this.name} has now ${this.hp} hp with status ${this.status}`);
   }
   dealDamage(victim,dmg=this.dmg){
+    console.log(`${this.name} attacks ${victim.name} with ${dmg} dmg`);
     victim.takeDamage(dmg);
-    if (victim.status='loser') {
+    if (victim.status=='loser') {
       this.mana += 20;
     }
   }
@@ -29,7 +31,9 @@ export class Fighter extends Character {
     super(name,hp,dmg,mana);
   }
   special(victim){
-    dealDamage(victim,5) //special attack with 5 damages
+    this.dealDamage(victim,5) //special attack with 5 damages
+    //shield
+    //mana
   }
 }
 export class Paladin extends Character {

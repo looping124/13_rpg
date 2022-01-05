@@ -1,4 +1,5 @@
 import Character, {Fighter,Paladin,Monk,Berzerker,Assassin} from './character.js';
+import Turn from './turn.js';
 
 export default class Game {
   constructor(turnLeft=10){
@@ -12,25 +13,48 @@ export default class Game {
     players.push(player1);
     let player2 = new Paladin;
     players.push(player2);
-    this.playGame(players);
+    this.players = players;
+    this.playGame();
+    
   }
 
-  playGame(players){
-    players.forEach(player => {
-      console.log(player);
-});
+  playGame(){
+    console.log("playGame from new Game");
+    while (this.gameIsPlaying()) {
+      this.newTurn();
+    }
+    console.log('6');
+    this.endGame()
   }
 
-  newTurn(players){
-    new Turn(players);
-    this.turnLeft-=1;
-    if (turnLeft==0) {
-      endGame();
+  gameIsPlaying(){
+    let playersPlaying = this.players.filter(player => player.status == 'playing');
+    if (this.playingPlayers().length <= 1) {
+      return false
+    } else if (this.turnLeft == 0) {
+      console.log('2');
+      return false
+    }
+    else {
+      return true
     }
   }
 
-  endGame(){
+  newTurn(){
+    new Turn(this);
+    this.turnLeft-=1;
+    console.log(`------------------`);
+  }
 
+  endGame(){
+    console.log(`THE GAME IS OVER`);
+    console.log(this.players);
+  }
+
+  playingPlayers(){
+    console.log(this.players);
+    console.log('4');
+    return this.players.filter(player => player.status === 'playing');
   }
 }
 
