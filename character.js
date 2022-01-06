@@ -1,4 +1,4 @@
-import Display from "./display.js";
+import Display, {DisplayButtons} from './display.js';
 
 export default class Character {
   constructor(name,hp,dmg,mana){
@@ -42,6 +42,11 @@ export class Fighter extends Character {
 export class Paladin extends Character {
   constructor(name='Ulder',hp=16, dmg=3, mana=160){
     super(name,hp,dmg,mana);
+  }
+  special(victim){
+    this.dealDamage(victim,5) //special attack with 5 damages
+    //shield
+    //mana
   }
 }
 export class Monk extends Character {

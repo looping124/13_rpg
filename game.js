@@ -11,7 +11,7 @@ export default class Game {
 
   starGame(){
     new Display('Start game :')
-    new Display('Choose player 1\'s class:')
+    new Display('Choose your fighters:')
     new DisplayButtons([
       {text:"Fighter",action: () => this.createPlayer("Fighter")},
       {text:"Paladin",action: () => this.createPlayer("Paladin")},
@@ -62,16 +62,14 @@ export default class Game {
 
   playGame(){
 
-    new Display("playGame from new Game ");
+    new Display("Let's start the fight");
 
-    // let toto = new DisplayButtons([{text:"1",action: function() {tata= "tata";}},{text:"2",action: this.action2},{text:"3",action: this.action3}]);
-
-
-    while (this.gameIsPlaying()) {
-      this.newTurn();
-    }
+    // while (this.gameIsPlaying()) {
+    //   this.newTurn();
+    // }
+    this.newTurn();
   
-    this.endGame()
+    // this.endGame()
   }
 
   gameIsPlaying(){
@@ -89,8 +87,10 @@ export default class Game {
 
   newTurn(){
     new Turn(this);
-    this.turnLeft-=1;
-    new Display(`------------------`);
+  }
+
+  endTurn(){
+    this.gameIsPlaying() ? this.newTurn() : this.endGame();
   }
 
   endGame(){

@@ -14,7 +14,7 @@ export default class Display{
     // ajoute le nouvel élément créé et son contenu dans le DOM
     var currentDiv = document.getElementById('last_div');
     document.body.insertBefore(newDiv, currentDiv);
-    console.log(text)
+    // console.log(text)
   }
 
   displayChoice(){
