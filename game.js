@@ -10,7 +10,6 @@ export default class Game {
   }
 
   starGame(){
-    var players =[];
     new Display('Start game :')
     new Display('Choose player 1\'s class:')
     new DisplayButtons([
@@ -19,36 +18,31 @@ export default class Game {
       {text:"Monk",action: () => this.createPlayer("Monk")},
       {text:"Berzerker",action: () => this.createPlayer("Berzerker")},
       {text:"Assassin",action: () => this.createPlayer("Assassin")},
+
       {text:"Start Game",action: () => this.playGame()},
     ]);
-    // let player1 = new Fighter;
-    // players.push(player1);
-    // let player2 = new Paladin;
-    // players.push(player2);
-    this.players = players;
-    // this.playGame();
   }
 
   createPlayer(playerClass){
     switch (playerClass) {
       case "Fighter":
-        players.push(new Fighter);
-      break;
+        this.players.push(new Fighter);
+        break;
 
       case "Paladin":
-        players.push(new Paladin);
+        this.players.push(new Paladin);
         break;
 
-        case "Monk":
-          players.push(new Monk);
+      case "Monk":
+        this.players.push(new Monk);
         break;
 
-        case "Berzerker":
-          players.push(new Berzerker);
+      case "Berzerker":
+        this.players.push(new Berzerker);
         break;
 
-        case "Assassin":
-          players.push(new Assassin);
+      case "Assassin":
+        this.players.push(new Assassin);
         break;
     
       default:
