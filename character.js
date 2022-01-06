@@ -1,3 +1,5 @@
+import Display from "./display.js";
+
 export default class Character {
   constructor(name,hp,dmg,mana){
     this.name = name;
@@ -13,9 +15,11 @@ export default class Character {
     amont > 0 ? this.hp -= amont : null;
     this.hp <= 0 ? this.status='loser' : null;
     console.log(`${this.name} has now ${this.hp} hp with status ${this.status}`);
+    new Display(`${this.name} has now ${this.hp} hp with status ${this.status}`);
   }
   dealDamage(victim,dmg=this.dmg){
     console.log(`${this.name} attacks ${victim.name} with ${dmg} dmg`);
+    new Display(`${this.name} attacks ${victim.name} with ${dmg} dmg`);
     victim.takeDamage(dmg);
     if (victim.status=='loser') {
       this.mana += 20;

@@ -40,7 +40,6 @@ export class DisplayButtons {
     //create event listener
     btn.addEventListener('click', e => {
       objectButton.action();
-
     })
   }
 

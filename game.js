@@ -30,18 +30,17 @@ export default class Game {
   }
 
   playGame(){
-    let tata ="init"
+
     console.log("playGame from new Game");
-    new Display("playGame from new Game 1");
-    new Display("playGame from new Game 2");
-    new Display("Choisicez votre classe :");
-    let toto = new DisplayButtons([{text:"1",action: function() {tata= "tata";}},{text:"2",action: this.action2},{text:"3",action: this.action3}]);
-    new Display(tata);
+    new Display("playGame from new Game ");
+
+    // let toto = new DisplayButtons([{text:"1",action: function() {tata= "tata";}},{text:"2",action: this.action2},{text:"3",action: this.action3}]);
+
 
     while (this.gameIsPlaying()) {
       this.newTurn();
     }
-    console.log('6');
+  
     this.endGame()
   }
 
@@ -50,7 +49,7 @@ export default class Game {
     if (this.playingPlayers().length <= 1) {
       return false
     } else if (this.turnLeft == 0) {
-      console.log('2');
+
       return false
     }
     else {
@@ -62,10 +61,12 @@ export default class Game {
     new Turn(this);
     this.turnLeft-=1;
     console.log(`------------------`);
+    new Display(`------------------`);
   }
 
   endGame(){
     console.log(`THE GAME IS OVER`);
+    new Display(`THE GAME IS OVER`);
   }
 
   playingPlayers(){
