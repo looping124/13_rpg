@@ -1,5 +1,6 @@
 import Character, {Fighter,Paladin,Monk,Berzerker,Assassin} from './character.js';
 import Turn from './turn.js';
+import Display from './display.js';
 
 export default class Game {
   constructor(turnLeft=10){

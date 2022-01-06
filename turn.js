@@ -1,3 +1,4 @@
+import Display from './display.js';
 export default class Turn{
   constructor(game){
     this.game = game;
