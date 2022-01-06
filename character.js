@@ -9,16 +9,15 @@ export default class Character {
     this.status = 'playing';
     this.shield = 0;
     this.shieldTurns = 0;
+    new Display(`${this.name} has been created !`)
   }
   takeDamage(amont){
     amont -= this.shield;
     amont > 0 ? this.hp -= amont : null;
     this.hp <= 0 ? this.status='loser' : null;
-    console.log(`${this.name} has now ${this.hp} hp with status ${this.status}`);
     new Display(`${this.name} has now ${this.hp} hp with status ${this.status}`);
   }
   dealDamage(victim,dmg=this.dmg){
-    console.log(`${this.name} attacks ${victim.name} with ${dmg} dmg`);
     new Display(`${this.name} attacks ${victim.name} with ${dmg} dmg`);
     victim.takeDamage(dmg);
     if (victim.status=='loser') {
