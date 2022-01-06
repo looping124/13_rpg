@@ -1,6 +1,6 @@
 import Character, {Fighter,Paladin,Monk,Berzerker,Assassin} from './character.js';
 import Turn from './turn.js';
-import Display from './display.js';
+import Display, {DisplayButtons} from './display.js';
 
 export default class Game {
   constructor(turnLeft=10){
@@ -19,8 +19,25 @@ export default class Game {
     
   }
 
+  action1(){
+    new Display("ACTION 1")
+  }
+  action2(){
+    new Display("ACTION 2")
+  }
+  action3(){
+    new Display("ACTION 3")
+  }
+
   playGame(){
+    let tata ="init"
     console.log("playGame from new Game");
+    new Display("playGame from new Game 1");
+    new Display("playGame from new Game 2");
+    new Display("Choisicez votre classe :");
+    let toto = new DisplayButtons([{text:"1",action: function() {tata= "tata";}},{text:"2",action: this.action2},{text:"3",action: this.action3}]);
+    new Display(tata);
+
     while (this.gameIsPlaying()) {
       this.newTurn();
     }
