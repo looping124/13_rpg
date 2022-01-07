@@ -35,8 +35,9 @@ export class Fighter extends Character {
   }
   special(victim){
     this.dealDamage(victim,5) //special attack with 5 damages
-    //shield
-    //mana
+    this.shieldTurns = 1;
+    this.shield = 2;
+    this.mana -= 20;
   }
 }
 export class Paladin extends Character {
@@ -44,23 +45,39 @@ export class Paladin extends Character {
     super(name,hp,dmg,mana);
   }
   special(victim){
-    this.dealDamage(victim,5) //special attack with 5 damages
-    //shield
-    //mana
+    this.dealDamage(victim,4) //special attack with 5 damages
+    this.hp += 5;
+    this.mana -= 40;
   }
 }
 export class Monk extends Character {
   constructor(name='Moana',hp=8, dmg=2, mana=200){
     super(name,hp,dmg,mana);
   }
+    special(){
+      this.hp += 5;
+      this.mana -= 25;
+    }
+  
 }
 export class Berzerker extends Character {
   constructor(name='Draven',hp=8, dmg=4, mana=0){
     super(name,hp,dmg,mana);
   }
+    special(){
+      this.dmg +=1;
+    }
+  
 }
 export class Assassin extends Character {
   constructor(name='Carl',hp=6, dmg=6, mana=20){
     super(name,hp,dmg,mana);
   }
+    special(){
+      this.dealDamage(victim,7);
+      this.shieldTurns = 1;
+      this.shield = 999;
+      this.mana -= 20;
+    }
+  
 }

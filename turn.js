@@ -16,7 +16,6 @@ export default class Turn{
       new Display(`${player.name} is ${player.status} with ${player.hp} hp`);
     });
     new Display('**')
-    new Display(`Round ${this.game.turnLeft}`)
     this.makeTurn();
   }
 
@@ -32,19 +31,16 @@ export default class Turn{
     }
 
   playerTurn(player){
-    // let ennemies = this.playingPlayers.filter(p => p.name != player.name);
-    // console.log(this.playerIndex);
-    // let ennemies = this.playingPlayers.slice(this.playerIndex, 1);
-    
-    let ennemies = this.playingPlayers.slice(this.playerIndex);
-    
-    new Display(`${player.name}, chose your action :`);
-    new DisplayButtons([
-      {text:"Normal Attack",action: () => this.normalAttack(player,ennemies[0])},
-      {text:"Special Attack",action: () => this.specialAttack(player,ennemies[0])},
 
-      // {text:"Continue",action: () => this.endPlayerTurn()},
-    ]);
+    let ennemies = this.playingPlayers.filter(p => p != player);
+    new Display(`${player.name}, chose your action :`);
+    ennemies.forEach(ennemie => {
+      new DisplayButtons([
+        {text:`Normal Attack on ${ennemie.name}`,action: () => this.normalAttack(player,ennemie)},
+        {text:`Special Attack on ${ennemie.name}`,action: () => this.specialAttack(player,ennemie)},
+      ]);
+    });
+
     
   }
 

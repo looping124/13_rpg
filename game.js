@@ -95,6 +95,12 @@ export default class Game {
 
   endGame(){
     new Display(`THE GAME IS OVER`);
+    // let winners = this.playingPlayers()
+    new Display(`Winners are :`);
+    
+    this.playingPlayers().forEach(winner => {
+      new Display(`${winner.name}`);
+    });
   }
 
   playingPlayers(){
